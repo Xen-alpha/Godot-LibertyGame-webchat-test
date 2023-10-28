@@ -8,17 +8,15 @@
         <canvas id="canvas"></canvas>
         <script src="LibertyChat.js"></script>
         <script>
-            var configobj = {"args":[],"canvasResizePolicy":0,"executable":"LibertyChat","experimentalVK":false,"fileSizes":{"LibertyChat.pck":31424,"LibertyChat.wasm":13790961},"focusCanvas":true,"gdnativeLibs":[]};
+            var configobj = {"args":[],"canvasResizePolicy":0,"executable":"LibertyChat","experimentalVK":false,"fileSizes":{"LibertyChat.pck":31424,"LibertyChat.wasm":17865444},"focusCanvas":true,"gdnativeLibs":[]};
             configobj.locale = "ko_KR";
             configobj.canvasResizePolicy = 2;
-            const myWasm = configobj.executable + ".wasm";
-            const myPck = configobj.executable + ".pck";
-            const engine = new Engine(configobj);
+            var engine = new Engine(configobj);
             Promise.all([
                 // Load and init the engine
-                engine.init(myWasm),
+                engine.init("LibertyChat.wasm"),
                 // And the pck concurrently
-                engine.preloadFile(myPck),
+                engine.preloadFile("LibertyChat.pck"),
             ]).then(() => {
             // Now start the engine.
             return engine.start({ args: ['--main-pack', myPck] });
