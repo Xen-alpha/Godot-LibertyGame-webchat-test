@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>libertygame webchat test</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <canvas id="canvas"></canvas>
+        <script src="$GODOT_URL"></script>
+        <script>
+            var configobj = $GODOT_CONFIG;
+            configobj.locale = "ko_KR";
+            configobj.canvasResizePolicy = 2;
+            var engine = new Engine(configobj);
+            Promise.all([
+                // Load and init the engine
+                engine.init("LibertyChat.wasm"),
+                // And the pck concurrently
+                engine.preloadFile("LibertyChat.pck"),
+            ]).then(() => {
+            // Now start the engine.
+            return engine.start({ args: ['--main-pack', myPck] });
+        }).then(() => {
+            console.log('Engine has started!');
+        });
+        </script>
+    </body>
+</html>
