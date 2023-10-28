@@ -624,6 +624,7 @@ const Engine = (function () {
 							const cloned = new Response(response.clone().body, { 'headers': [['content-type', 'application/wasm']] });
 							Godot(me.config.getModuleConfig(loadPath, cloned)).then(function (module) {
 								const paths = me.config.persistentPaths;
+								console.log("Loading Script from: "+paths);
 								module['initFS'](paths).then(function (err) {
 									me.rtenv = module;
 									if (me.config.unloadAfterInit) {
