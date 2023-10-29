@@ -8,10 +8,7 @@
         <canvas id="canvas"></canvas>
         <script src="LibertyChat.js"></script>
         <script>
-            var configobj = {"args":[],"canvasResizePolicy":2,"executable":"LibertyChat","experimentalVK":false,"fileSizes":{"LibertyChat.pck":62448,"LibertyChat.wasm":17865444},"focusCanvas":true,"gdnativeLibs":[]};
-            configobj.locale = "ko_KR";
-            configobj.canvasResizePolicy = 2;
-            var engine = new Engine(configobj);
+            var engine = new Engine();
             Promise.all([
                 // Load and init the engine
                 engine.init("LibertyChat.wasm"),
