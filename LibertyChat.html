@@ -14,7 +14,7 @@
             var engine = new Engine(configobj);
             Promise.all([
                 // Load and init the engine
-                engine.init("LibertyChat.wasm"),
+                engine.init(configobj.executable),
                 // And the pck concurrently
                 engine.preloadFile("LibertyChat.pck"),
             ]).then(() => {
